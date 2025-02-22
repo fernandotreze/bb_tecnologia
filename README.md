@@ -1,6 +1,8 @@
 # 📌 Aprendizado de TI  
 
-Este projeto é um site simples para organizar meus estudos na área de **Tecnologia da Informação**. Ele contém links para diferentes tópicos que estou aprendendo, como **Estrutura de Dados e Algoritmos, Aprendizado de Máquina, Banco de Dados, Big Data, Desenvolvimento Mobile** e **Ferramentas/Linguagens de Programação**.
+Este projeto é um site simples para organizar meus estudos na área de **Tecnologia da Informação**.
+
+Estou me baseando no conteúdo que pedem no concurso de Agente de Tecnologia do Banco do Brasil de 2022.
 
 ## 📂 Estrutura do Projeto  
 
