@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explicação de Busca Sequencial</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .popup {
+            width: 80%;
+            max-width: 800px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            overflow-y: auto;
+            max-height: 90vh;
+        }
+        .popup h2 {
+            margin-top: 0;
+        }
+        .popup pre {
+            background-color: #eef;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+        .popup button {
+            display: block;
+            margin: 20px auto 0;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .popup button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="popup">
+        <h2>Explicação Passo a Passo: Busca Sequencial</h2>
+        <h3>Definição da Função:</h3>
+        <pre>
+def busca_sequencial(lista, valor):
+    def: Palavra-chave que indica a definição de uma função.
+    busca_sequencial: Nome da função que descreve o que ela faz.
+    lista: Parâmetro que representa a lista onde vamos procurar o valor.
+    valor: Parâmetro que representa o valor que queremos encontrar na lista.
+        </pre>
+        
+        <h3>Loop (Laço de Repetição):</h3>
+        <pre>
+for i in range(len(lista)):
+    for: Palavra-chave usada para iniciar um laço de repetição.
+    i: Variável que servirá como índice para acessar cada elemento da lista.
+    range(len(lista)): A função len(lista) retorna o tamanho da lista (quantidade de elementos).
+                      O range() gera uma sequência de números de 0 até o tamanho da lista - 1.
+                      Ou seja, o laço vai percorrer todos os índices da lista.
+        </pre>
+
+        <h3>Verificação da Condição:</h3>
+        <pre>
+if lista[i] == valor:
+    if: Condicional que verifica se a condição é verdadeira.
+    lista[i]: Acessa o elemento da lista no índice i.
+    valor: Compara o valor encontrado na lista com o valor que estamos procurando.
+           Se a condição for verdadeira (ou seja, se o valor foi encontrado), o código dentro do if será executado.
+        </pre>
+
+        <h3>Retorno do Índice:</h3>
+        <pre>
+return i
+    Se o valor foi encontrado, a função retorna o índice i, onde o valor foi encontrado na lista.
+    O código executa a função e para imediatamente ao encontrar o primeiro valor correspondente.
+        </pre>
+
+        <h3>Valor Não Encontrado:</h3>
+        <pre>
+return -1
+    Se o loop terminar e o valor não for encontrado (ou seja, se o if nunca for verdadeiro), a função retorna -1,
+    indicando que o valor não foi encontrado na lista.
+        </pre>
+
+        <h3>Resumo do Fluxo:</h3>
+        <p>A função começa a percorrer a lista a partir do primeiro elemento (índice 0).</p>
+        <p>Para cada elemento, verifica se ele é igual ao valor que procuramos.</p>
+        <p>Se encontrar o valor, retorna o índice do elemento.</p>
+        <p>Se não encontrar o valor após percorrer toda a lista, retorna -1.</p>
+
+        <p>Esse algoritmo tem complexidade <strong>O(n)</strong>, onde <strong>n</strong> é o número de elementos na lista, porque no pior caso ele vai percorrer todos os elementos para achar o valor.</p>
+
+        <button onclick="window.close()">Fechar</button>
+    </div>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estruturas de Dados e Algoritmos - Lição 1</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Estruturas de Dados e Algoritmos - Lição 1</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>1. O que são Estruturas de Dados?</h2>
+            <p>As estruturas de dados são formas de organizar e armazenar dados de maneira eficiente. O tipo de estrutura que você escolhe depende do tipo de operação que você precisa realizar. Algumas das estruturas mais comuns incluem:</p>
+            <ul>
+                <li><strong>Arrays (ou Vetores):</strong> Armazenam dados em sequência. O acesso aos elementos é rápido, mas adicionar ou remover elementos no meio pode ser lento.</li>
+                <li><strong>Listas Ligadas:</strong> Cada elemento aponta para o próximo. Inserir e remover elementos é fácil, mas o acesso aos dados é mais lento.</li>
+                <li><strong>Pilhas (Stacks):</strong> Os elementos são inseridos e removidos do topo (LIFO - Last In, First Out).</li>
+                <li><strong>Filas (Queues):</strong> Os elementos são inseridos no final e removidos do início (FIFO - First In, First Out).</li>
+                <p>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/ddXb6CYXMzA?si=PkCRDQxlFjJ-lhoS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> <iframe width="560" height="315" src="https://www.youtube.com/embed/SqBgnMgFQTU?si=JoofKeiuNA9ML7Pl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </p>
+            </ul>
+        </section>
+
+        <section>
+            <h2>2. O que são Algoritmos?</h2>
+            <p>Algoritmos são sequências de instruções que resolvem um problema ou realizam uma tarefa. Quando falamos de algoritmos de busca e ordenação, estamos tratando de como buscar um elemento ou organizar dados de forma eficiente.</p>
+            <p><a href="/estruturas-algoritmo/algoritmo.html" target="_blank">Clique aqui para saber mais sobre algoritmos</a></p>
+            <p>Vamos começar com dois tipos de algoritmos básicos:</p>
+            <ul>
+                <li><strong>Busca Sequencial:</strong> A busca sequencial percorre todos os elementos de uma lista até encontrar o item desejado.</li>
+                <li><strong>Busca Binária:</strong> A busca binária é mais eficiente, mas funciona apenas em listas ordenadas. Ela divide a lista ao meio a cada comparação.</li>
+                <p>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/mstMhMT_UeA?si=-rUqE9VMPvrxKjrZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </p>
+            </ul>
+        </section>
+
+        <section>
+            <h2>3. Exemplo de Busca Sequencial</h2>
+            <p>A busca sequencial é o algoritmo mais simples. Ele verifica cada item da lista até encontrar o valor desejado.</p>
+            <pre><code> 
+                def busca_sequencial(lista, valor):
+                for i in range(len(lista)):
+                    if lista[i] == valor:
+                        return i  # Retorna o índice do valor
+                return -1  # Retorna -1 se o valor não for encontrado
+            
+            # Testando a função
+            lista = [10, 20, 30, 40, 50]
+            valor = 30
+            resultado = busca_sequencial(lista, valor)
+            print(f'O valor {valor} foi encontrado no índice {resultado}')
+                        </code></pre>
+            <p><a href="explicacao_busca_sequencial.html" target="_blank">Veja a explicação detalhada</a>
+            </p>
+            <p>Este código percorre a lista até encontrar o valor desejado e retorna o índice do item. Se não encontrar o item, retorna -1.</p>
+        </section>
+
+        <section>
+            <h2>4. Exemplo de Busca Binária</h2>
+            <p>A busca binária é mais eficiente, mas só funciona em listas ordenadas. Ela divide a lista ao meio e, a cada comparação, elimina metade da lista.</p>
+            <pre><code>
+def busca_binaria(lista, valor):
+    esquerda, direita = 0, len(lista) - 1
+    while esquerda <= direita:
+        meio = (esquerda + direita) // 2
+        if lista[meio] == valor:
+            return meio  # Retorna o índice do valor
+        elif lista[meio] < valor:
+            esquerda = meio + 1
+        else:
+            direita = meio - 1
+    return -1  # Retorna -1 se o valor não for encontrado
+            </code></pre>
+            <p><a href="explicacao_busca_binaria.html" target="_blank">Veja a explicação detalhada</a></p>
+            <p>Esse algoritmo busca por um valor, dividindo a lista em duas metades até encontrar o número ou concluir que ele não está na lista.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Aprendizado TI</p>
+    </footer>
+</body>
+</html>

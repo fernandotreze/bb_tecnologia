@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aprendizado de TI - Desktop</title>
+  <style>
+    /* Remover margens e definir fonte padrão */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    /* Cabeçalho fixo */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: #333;
+      height: 60px;
+      line-height: 60px;
+      z-index: 100;
+    }
+    /* Lista do cabeçalho com 6 colunas */
+    header ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      justify-content: space-around;
+    }
+    header li {
+      flex: 1;
+      text-align: center;
+    }
+    header a {
+      display: block;
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+      padding: 10px;
+    }
+    header a:hover {
+      background-color: #555;
+    }
+    /* Área principal: conteúdo em iframe */
+    main {
+      margin-top: 60px; /* Espaço para o cabeçalho */
+    }
+    iframe {
+      width: 100%;
+      height: calc(100vh - 60px);
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <ul>
+      <li><a href="estruturas-algoritmo/estruturas-algoritmos.html" target="conteudo">Estrutura de Dados e Algoritmos</a></li>
+      <li><a href="aprendizado-maquina.html" target="conteudo">Aprendizagem de Máquina</a></li>
+      <li><a href="banco-dados.html" target="conteudo">Banco de Dados</a></li>
+      <li><a href="big-data.html" target="conteudo">Big Data</a></li>
+      <li><a href="desenvolvimento-mobile.html" target="conteudo">Desenvolvimento Mobile</a></li>
+      <li><a href="ferramentas-linguagens.html" target="conteudo">Ferramentas e Linguagens</a></li>
+    </ul>
+  </header>
+  <main>
+    <!-- O iframe carrega inicialmente a página de "Estrutura de Dados e Algoritmos" -->
+    <iframe name="conteudo" src="estruturas-algoritmo/estruturas-algoritmos.html"></iframe>
+  </main>
+</body>
+</html>

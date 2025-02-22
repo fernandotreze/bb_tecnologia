@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explicação da Busca Binária</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        h2 {
+            color: #3498db;
+        }
+        .code {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-left: 5px solid #3498db;
+            overflow-x: auto;
+            font-family: "Courier New", monospace;
+        }
+        .box {
+            padding: 15px;
+            background-color: #ecf0f1;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Explicação da Busca Binária</h1>
+    <p>A busca binária é um algoritmo eficiente para encontrar um valor em uma lista ordenada. Ela reduz pela metade o intervalo de busca a cada passo, tornando-a muito mais rápida que a busca sequencial em listas grandes.</p>
+
+    <h2>Definição da Função</h2>
+    <div class="box">
+        <p><strong>def busca_binaria(lista, valor):</strong></p>
+        <p><strong>def</strong>: Palavra-chave que indica a definição de uma função.</p>
+        <p><strong>busca_binaria</strong>: Nome da função que descreve o que ela faz.</p>
+        <p><strong>lista</strong>: Parâmetro que representa a lista ordenada onde vamos procurar o valor.</p>
+        <p><strong>valor</strong>: Parâmetro que representa o valor que queremos encontrar.</p>
+    </div>
+
+    <h2>Loop de Busca</h2>
+    <div class="box">
+        <p><strong>while esquerda <= direita:</strong></p>
+        <p>O loop continua enquanto o índice da esquerda for menor ou igual ao da direita.</p>
+    </div>
+
+    <h2>Cálculo do Índice do Meio</h2>
+    <div class="box">
+        <p><strong>meio = (esquerda + direita) // 2</strong></p>
+        <p>Calcula o índice do meio do intervalo atual.</p>
+    </div>
+
+    <h2>Verificação do Valor</h2>
+    <div class="box">
+        <p><strong>if lista[meio] == valor:</strong></p>
+        <p>Se o valor no índice do meio for igual ao valor procurado, retorna o índice do meio.</p>
+    </div>
+
+    <h2>Atualização do Intervalo</h2>
+    <div class="box">
+        <p><strong>elif lista[meio] < valor:</strong></p>
+        <p>Se o valor no meio for menor, atualiza <strong>esquerda = meio + 1</strong> (descarta a metade esquerda).</p>
+        <p><strong>else:</strong> Atualiza <strong>direita = meio - 1</strong> (descarta a metade direita).</p>
+    </div>
+
+    <h2>Retorno</h2>
+    <div class="box">
+        <p><strong>return -1</strong></p>
+        <p>Se o valor não for encontrado, retorna -1.</p>
+    </div>
+
+    <h2>Complexidade</h2>
+    <p><strong>Complexidade Temporal:</strong> O(log n) — A cada iteração, o tamanho da lista é reduzido pela metade.</p>
+    <p><strong>Complexidade Espacial:</strong> O(1) — Utiliza apenas variáveis simples.</p>
+
+    <h2>Exemplo Prático</h2>
+    <div class="code">
+        <pre>
+lista = [1, 3, 5, 7, 9, 11, 13, 15, 17, 19]
+valor_procurado = 7
+indice = busca_binaria(lista, valor_procurado)
+if indice != -1:
+    print(f"Valor {valor_procurado} encontrado no índice {indice}.")
+else:
+    print(f"Valor {valor_procurado} não encontrado.")
+        </pre>
+    </div>
+</body>
+</html>
