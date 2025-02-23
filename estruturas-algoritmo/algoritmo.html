@@ -71,44 +71,59 @@
     </section>
 
     <section class="section">
-      <h2>Detalhamento das Estruturas</h2>
-      <h3>Estrutura Sequencial</h3>
+      <h2>Tipos de Algoritmos</h2>
+      <h3>Algoritmo 1.1 - Inversão de uma sequência</h3>
       <p>
-        Na estrutura sequencial, cada instrução é executada em ordem, uma após a outra. Por exemplo, para fazer um sanduíche, você seguiria passos como: 
-        pegar os ingredientes, montar o sanduíche e servir.
+          O objetivo é inverter a ordem dos elementos de um vetor. A ideia é trocar o primeiro elemento com o último, o segundo com o penúltimo, e assim por diante, percorrendo apenas metade do vetor.
       </p>
-
-      <h3>Estrutura Condicional</h3>
-      <p>
-        Estruturas condicionais permitem que o algoritmo escolha um caminho diferente de execução baseado em uma condição. 
-        Por exemplo, em um algoritmo que decide se uma pessoa pode votar, você usaria uma estrutura <code>if</code> para verificar a idade.
-      </p>
-
-      <h3>Estrutura Iterativa (Repetição)</h3>
-      <p>
-        A iteração permite repetir um conjunto de instruções várias vezes até que uma condição seja atendida. 
-        Essa estrutura é fundamental para percorrer listas ou executar tarefas repetitivas.
-      </p>
-      <ul>
-        <li>
-          <strong>Laço <code>for</code>:</strong> Utilizado para iterar sobre sequências (como listas ou strings) ou sobre um intervalo numérico gerado por <code>range()</code>.
-        </li>
-        <li>
-          <strong>Laço <code>while</code>:</strong> Executa um bloco de código enquanto uma condição for verdadeira.
-        </li>
-      </ul>
-      <p>Exemplo de iteração com <code>for</code>:</p>
       <pre>
-lista = [1, 2, 3, 4, 5]
-for i in range(len(lista)):
-    print(lista[i])
-      </pre>
-
-      <h3>Estrutura Recursiva</h3>
-      <p>
-        Na recursão, uma função chama a si mesma para resolver um problema, geralmente quebrando-o em partes menores. 
-        É essencial definir uma condição de parada para evitar loops infinitos. Um exemplo clássico é o cálculo do fatorial de um número.
-      </p>
+      Algoritmo 1.1
+      Inversão de uma sequência
+      para i := 1, …, ⎣n/2⎦ faça
+          temp := S[i]
+          S[i] := S[n – i + 1]
+          S[n – i + 1] := temp
+        </pre>
+        <p>
+          A notação <code>⎣x⎦</code> (piso de <em>x</em>) indica o maior inteiro menor ou igual a <em>x</em>. Assim, para um vetor com <em>n</em> elementos, se <em>n</em> for ímpar, o elemento central não é alterado.
+        </p>
+        <p>
+          <strong>Exemplo:</strong> Para <code>S = [10, 20, 30, 40, 50]</code>:
+        </p>
+        <ul>
+          <li>Troca do 1º com o 5º elemento: [50, 20, 30, 40, 10]</li>
+          <li>Troca do 2º com o 4º elemento: [50, 40, 30, 20, 10]</li>
+          <li>O elemento central (30) permanece inalterado.</li>
+        </ul>
+      
+        <h4>Implementação em Python</h4>
+        <p>
+          Em Python, podemos inverter uma lista de duas formas:
+        </p>
+        
+        <h5>Com Loop Manual</h5>
+        <pre>
+      def inverter_lista(lista):
+          n = len(lista)
+          for i in range(n // 2):
+              # Troca os elementos sem variável temporária usando atribuição múltipla
+              lista[i], lista[n - i - 1] = lista[n - i - 1], lista[i]
+      
+      # Exemplo de uso
+      lista = [10, 20, 30, 40, 50]
+      inverter_lista(lista)
+      print(lista)  # Saída: [50, 40, 30, 20, 10]
+        </pre>
+        
+        <h5>Usando Slicing</h5>
+        <pre>
+      lista = [10, 20, 30, 40, 50]
+      lista = lista[::-1]
+      print(lista)  # Saída: [50, 40, 30, 20, 10]
+        </pre>
+        <p>
+          O slicing cria uma nova lista invertida e percorre todos os elementos, enquanto o loop manual modifica a lista original e percorre apenas metade dos elementos.
+        </p>
     </section>
   </main>
   <footer>

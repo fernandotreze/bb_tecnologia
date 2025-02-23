@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Anotações de Leitura: Pascal e Python</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 20px;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    h1, h2, h3 {
+      color: #005a9c;
+    }
+    pre {
+      background-color: #eee;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    code {
+      background-color: #eee;
+      padding: 2px 4px;
+      border-radius: 3px;
+    }
+    ul {
+      margin: 0 0 1em 1.5em;
+    }
+  </style>
+</head>
+<body>
+  <h1>Anotações de Leitura: Pascal e Python</h1>
+  <p>
+    Estas anotações resumem os principais pontos discutidos sobre a linguagem <strong>Pascal</strong>, estruturas de dados e a implementação de um algoritmo para inversão de uma sequência, com comparações e exemplos em Python.
+  </p>
+
+  <h2>1. Pascal: Contexto e Notações</h2>
+  <p>
+    <strong>Blaise Pascal</strong> foi um matemático, físico, filósofo e inventor francês, e sua influência se estende à área da computação. A linguagem <em>Pascal</em>, criada por Niklaus Wirth, destaca-se por sua clareza e estrutura organizada, sendo bastante utilizada para o ensino de algoritmos e programação estruturada.
+  </p>
+
+  <h3>1.1 Operador de Atribuição <code>:=</code></h3>
+  <p>
+    Em Pascal, o símbolo <code>:=</code> é utilizado para atribuir um valor a uma variável. Exemplo:
+  </p>
+  <pre>
+var
+  x: integer;
+begin
+  x := 10;  (* Atribui 10 a x *)
+end.
+  </pre>
+
+  <h2>2. Estruturas de Dados</h2>
+  <p>São formas de armazenar e organizar dados na memória:</p>
+  <ul>
+    <li><strong>Variáveis Simples:</strong> Armazenam um único valor (ex.: <code>idade: integer</code>).</li>
+    <li><strong>Vetores (Arrays Unidimensionais):</strong> Conjunto de elementos do mesmo tipo, acessados por índice (ex.: <code>notas: array[1..5] of real</code>).</li>
+    <li><strong>Matrizes (Arrays Bidimensionais):</strong> Estruturas com duas dimensões (linhas e colunas), como uma tabela.</li>
+    <li><strong>Registros (Records):</strong> Agrupam diferentes tipos de dados em uma única estrutura, útil para representar entidades complexas (ex.: dados de um aluno com nome, idade e nota).</li>
+  </ul>
+
+  <h2>3. Arrays Multidimensionais</h2>
+  <p>
+    É possível criar arrays com três ou mais dimensões (3D, 4D, 5D, etc.). Por exemplo, um array 3D em Pascal:
+  </p>
+  <pre>
+var
+  cubo: array[1..3, 1..3, 1..3] of integer;
+begin
+  cubo[1,2,3] := 42;
+end.
+  </pre>
+  <p>
+    Conforme aumentam as dimensões, a manipulação e visualização dos dados tornam-se mais complexas.
+  </p>
+
+  <h2>4. Ponteiros e Registros</h2>
+  <p>
+    Ponteiros são variáveis que armazenam endereços de memória. Em Pascal, podemos referenciar registros (estruturas com campos diversos) por meio de ponteiros utilizando o símbolo <code>↑</code> (ou <code>^</code> em algumas versões).
+  </p>
+  <p>
+    Exemplo: <code>pt ↑.info</code> representa o campo <em>info</em> de um registro localizado no endereço apontado por <em>pt</em>.
+  </p>
+  <p>
+    Além disso, a passagem de parâmetros por referência (usando <code>var</code>) permite que uma rotina modifique diretamente a variável original. Em algumas variações de Pascal, o símbolo <code>%</code> é usado para marcar comentários.
+  </p>
+
+  <h2>5. Algoritmo de Inversão de uma Sequência</h2>
+  <p>
+    O objetivo é inverter a ordem dos elementos de um vetor. A ideia é trocar o primeiro elemento com o último, o segundo com o penúltimo, e assim por diante, percorrendo apenas metade do vetor.
+  </p>
+  <pre>
+Algoritmo 1.1
+Inversão de uma sequência
+para i := 1, …, ⎣n/2⎦ faça
+    temp := S[i]
+    S[i] := S[n – i + 1]
+    S[n – i + 1] := temp
+  </pre>
+  <p>
+    A notação <code>⎣x⎦</code> (piso de <em>x</em>) indica o maior inteiro menor ou igual a <em>x</em>. Assim, para um vetor com <em>n</em> elementos, se <em>n</em> for ímpar, o elemento central não é alterado.
+  </p>
+  <p>
+    <strong>Exemplo:</strong> Para <code>S = [10, 20, 30, 40, 50]</code>:
+  </p>
+  <ul>
+    <li>Troca do 1º com o 5º elemento: [50, 20, 30, 40, 10]</li>
+    <li>Troca do 2º com o 4º elemento: [50, 40, 30, 20, 10]</li>
+    <li>O elemento central (30) permanece inalterado.</li>
+  </ul>
+
+  <h2>6. Implementação em Python</h2>
+  <p>
+    Em Python, podemos inverter uma lista de duas formas:
+  </p>
+  
+  <h3>6.1 Com Loop Manual</h3>
+  <pre>
+def inverter_lista(lista):
+    n = len(lista)
+    for i in range(n // 2):
+        # Troca os elementos sem variável temporária usando atribuição múltipla
+        lista[i], lista[n - i - 1] = lista[n - i - 1], lista[i]
+
+# Exemplo de uso
+lista = [10, 20, 30, 40, 50]
+inverter_lista(lista)
+print(lista)  # Saída: [50, 40, 30, 20, 10]
+  </pre>
+  
+  <h3>6.2 Usando Slicing</h3>
+  <pre>
+lista = [10, 20, 30, 40, 50]
+lista = lista[::-1]
+print(lista)  # Saída: [50, 40, 30, 20, 10]
+  </pre>
+  <p>
+    O slicing cria uma nova lista invertida e percorre todos os elementos, enquanto o loop manual modifica a lista original e percorre apenas metade dos elementos.
+  </p>
+
+  <h2>7. Atribuição Múltipla e Uso das Vírgulas em Python</h2>
+  <p>
+    A linha a seguir pode parecer confusa à primeira vista:
+  </p>
+  <pre>
+lista[i], lista[n - i - 1] = lista[n - i - 1], lista[i]
+  </pre>
+  <p>
+    Ela utiliza <strong>atribuição múltipla</strong> para trocar os valores de duas posições da lista sem precisar de uma variável temporária:
+  </p>
+  <ul>
+    <li>
+      <code>lista[i]</code> e <code>lista[n - i - 1]</code> (lado esquerdo) são as posições onde os valores serão armazenados.
+    </li>
+    <li>
+      <code>lista[n - i - 1], lista[i]</code> (lado direito) são os valores avaliados e trocados simultaneamente.
+    </li>
+  </ul>
+  <p>
+    Essa sintaxe permite que Python realize a troca de valores de forma direta e limpa.
+  </p>
+
+  <h2>8. Diferença de Indexação: Pascal vs. Python</h2>
+  <p>
+    A diferença chave está na <strong>indexação</strong>:
+  </p>
+  <ul>
+    <li>
+      <strong>Pascal:</strong> Vetores começam no índice 1. Assim, o primeiro elemento é <code>S[1]</code> e o último é <code>S[n]</code>. A troca usa <code>S[n - i + 1]</code> para acessar o elemento espelhado.
+    </li>
+    <li>
+      <strong>Python:</strong> Listas começam no índice 0. Portanto, o primeiro elemento é <code>lista[0]</code> e o último é <code>lista[n - 1]</code>. A troca usa <code>lista[n - i - 1]</code> para acessar o elemento espelhado.
+    </li>
+  </ul>
+  <p>
+    Esse ajuste (+1 em Pascal e -1 em Python) garante que os algoritmos acessem corretamente os elementos correspondentes em cada linguagem.
+  </p>
+
+  <h2>Conclusão</h2>
+  <p>
+    Estas anotações cobrem os principais tópicos discutidos:
+  </p>
+  <ul>
+    <li>O uso do operador <code>:=</code> em Pascal;</li>
+    <li>Diferentes estruturas de dados (variáveis, vetores, matrizes e registros);</li>
+    <li>Arrays multidimensionais;</li>
+    <li>Ponteiros e passagem por referência;</li>
+    <li>O algoritmo para inversão de uma sequência, com exemplos em Pascal e Python;</li>
+    <li>Atribuição múltipla em Python e o funcionamento das vírgulas;</li>
+    <li>Ajustes de indexação entre Pascal e Python.</li>
+  </ul>
+  <p>
+    Essas informações ajudam a compreender tanto os conceitos básicos de programação quanto as particularidades de cada linguagem.
+  </p>
+</body>
+</html>

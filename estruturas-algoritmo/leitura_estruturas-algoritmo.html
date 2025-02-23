@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leitura do livro Estruturas de Dados e Seus Algoritmos</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 20px;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    h1, h2, h3 {
+      color: #2c3e50;
+    }
+    pre {
+      background-color: #eef;
+      padding: 10px;
+      border-left: 4px solid #3498db;
+      overflow-x: auto;
+    }
+    code {
+      font-family: Consolas, monospace;
+    }
+    .section-divider {
+      border-bottom: 1px solid #ccc;
+      margin: 20px 0;
+    }
+    .conclusion {
+      font-weight: bold;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Leitura do livro <em>Estruturas de Dados e Seus Algoritmos</em></h1>
+
+  <h2>Capítulo 1 – Preliminares</h2>
+  
+  <div class="section-divider"></div>
+  
+  <h3>1.1 Introdução</h3>
+  <p>
+    Um <strong>algoritmo</strong> é um procedimento sistemático para resolver um problema. No contexto da computação, ele transforma <strong>entradas</strong> em <strong>saídas</strong>, manipulando dados de forma estruturada. O estudo de algoritmos envolve dois aspectos principais:
+  </p>
+  <ul>
+    <li><strong>Correção</strong>: Garantia de que o algoritmo resolve o problema corretamente.</li>
+    <li><strong>Eficiência</strong>: Avaliação do tempo de execução e uso de memória.</li>
+  </ul>
+  <p>
+    Os algoritmos são projetados em termos de <strong>tipos abstratos de dados</strong>, que devem ser representados por <strong>estruturas de dados</strong> na implementação prática.
+  </p>
+  
+  <div class="section-divider"></div>
+  
+  <h3>1.2 Apresentação dos Algoritmos</h3>
+  <p>
+<p><a href="inversor_vetor.html" target="_blank">Anotações da leitura</a></p>
+    Os algoritmos no livro são descritos em uma <strong>linguagem pseudocódigo</strong>, semelhante ao <strong>Pascal</strong>, para facilitar a leitura. Algumas convenções utilizadas:
+  </p>
+  <ul>
+    <li><code>:=</code> indica atribuição.</li>
+    <li>Estruturas condicionais e de repetição seguem o modelo:
+      <ul>
+        <li><code>se... então</code></li>
+        <li><code>se... então... senão</code></li>
+        <li><code>enquanto... faça</code></li>
+        <li><code>para... faça</code></li>
+      </ul>
+    </li>
+    <li>Vetores e matrizes são representados como <code>A[i]</code> e <code>B[i, j]</code>.</li>
+    <li>Ponteiros são utilizados com <code>↑</code>, indicando referência a um endereço de memória.</li>
+  </ul>
+  
+  <div class="section-divider"></div>
+  
+  <h3>1.3 Recursividade</h3>
+  <p>
+    A <strong>recursividade</strong> é uma técnica onde uma função chama a si mesma para resolver um problema. Todo procedimento recursivo pode ser substituído por uma versão não recursiva equivalente.
+  </p>
+  <p><strong>Vantagens da recursividade:</strong></p>
+  <ul>
+    <li>✔ Código mais conciso.</li>
+    <li>✔ Relacionamento direto com provas matemáticas por indução.</li>
+  </ul>
+  <p><strong>Desvantagens:</strong></p>
+  <ul>
+    <li>❌ Pode ser menos eficiente em alguns casos.</li>
+  </ul>
+  <p><strong>Exemplo: Cálculo do fatorial (recursivo)</strong></p>
+  <pre>
+função fat(i)
+    fat(i) := se i ≤ 1 então 1 senão i × fat(i – 1)
+  </pre>
+  <p><strong>Exemplo: Cálculo do fatorial (não recursivo)</strong></p>
+  <pre>
+fat[0] := 1
+para j := 1, …, n faça
+    fat[j] := j × fat[j – 1]
+  </pre>
+  <p>
+    Outro exemplo clássico de recursão é o <strong>Problema da Torre de Hanói</strong>, que envolve movimentação de discos entre pinos de acordo com regras específicas.
+  </p>
+  
+  <div class="section-divider"></div>
+  
+  <h3>1.4 Complexidade de Algoritmos</h3>
+  <p>
+    A <strong>complexidade de um algoritmo</strong> mede o tempo e os recursos necessários para sua execução.
+  </p>
+  <ul>
+    <li><strong>Pior caso</strong>: O tempo máximo necessário para qualquer entrada.</li>
+    <li><strong>Melhor caso</strong>: O tempo mínimo necessário.</li>
+    <li><strong>Caso médio</strong>: Média ponderada do tempo para todas as entradas possíveis.</li>
+  </ul>
+  <p>
+    <strong>Exemplos:</strong>
+  </p>
+  <ul>
+    <li>Um algoritmo que executa um número fixo de passos tem <strong>complexidade O(1)</strong>.</li>
+    <li>Um algoritmo de ordenação que percorre <code>n</code> elementos tem <strong>complexidade O(n)</strong>.</li>
+    <li>O algoritmo de ordenação por intercalação (<strong>Mergesort</strong>) tem <strong>complexidade O(n log n)</strong>.</li>
+  </ul>
+  
+  <div class="section-divider"></div>
+  
+  <h3>1.5 A Notação O (Big-O)</h3>
+  <p>
+    A <strong>notação O</strong> é usada para descrever o crescimento da complexidade de um algoritmo.
+  </p>
+  <p><strong>Definição:</strong></p>
+  <pre>
+Para todo n > n0, f(n) ≤ c * g(n)
+  </pre>
+  <p>
+    Ou seja, <code>g(n)</code> é um limite superior assintótico para <code>f(n)</code>.
+  </p>
+  <p><strong>Exemplos:</strong></p>
+  <ul>
+    <li><code>f(n) = n² - 1</code> ⇒ O(n²)</li>
+    <li><code>f(n) = 5 + 2 log n + 3 log² n</code> ⇒ O(log² n)</li>
+    <li><code>f(n) = 403</code> ⇒ O(1)</li>
+  </ul>
+  
+  <div class="section-divider"></div>
+  
+  <h3>1.6 Algoritmos Ótimos</h3>
+  <p>
+    Um <strong>algoritmo ótimo</strong> é aquele cuja complexidade é a menor possível para resolver um problema.
+  </p>
+  <p>
+    Se um problema tem <strong>limite inferior</strong> de complexidade <code>Ω(ℓ)</code>, qualquer algoritmo que o resolva deve ter complexidade no mínimo <code>Ω(ℓ)</code>.
+  </p>
+  <p><strong>Exemplo:</strong></p>
+  <ul>
+    <li>A complexidade mínima para somar duas matrizes <code>n × n</code> é <strong>O(n²)</strong>.</li>
+    <li>Se um algoritmo executa a soma em <code>O(n²)</code>, ele é considerado <strong>ótimo</strong>.</li>
+    <li>Se um algoritmo de multiplicação de matrizes tem <code>O(n³)</code> e existe outro mais eficiente em <code>O(n².8)</code>, o primeiro não é ótimo.</li>
+  </ul>
+  
+  <div class="section-divider"></div>
+  
+  <h3>1.7 Exercícios e Notas Bibliográficas</h3>
+  <p>
+    O capítulo finaliza com exercícios práticos e referências bibliográficas para aprofundamento dos conceitos apresentados.
+  </p>
+  
+  <div class="section-divider"></div>
+  
+  <h2 class="conclusion">Conclusão</h2>
+  <p>
+    Este primeiro capítulo estabelece os <strong>fundamentos essenciais</strong> para o estudo de <strong>estruturas de dados e algoritmos</strong>. Ele abrange desde a forma de apresentação dos algoritmos até os conceitos fundamentais de <strong>complexidade e eficiência</strong>, pre
