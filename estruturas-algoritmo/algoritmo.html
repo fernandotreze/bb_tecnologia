@@ -204,7 +204,57 @@ def fatorial_iterativo(n):
 # Exemplo de uso
 print("Fatorial iterativo de 4:", fatorial_iterativo(4))  # Saída: 24
       </pre>
+    </pre>
       
+    <!-- Algoritmo 1.4 -->
+    <h3>Algoritmo 1.4 - Torre de Hanói</h3>
+    <p>
+        A Torre de Hanói é um problema clássico que ilustra de forma natural e intuitiva o uso da recursividade. 
+        Consiste em três pinos: A (origem), B (destino) e C (trabalho), e <em>n</em> discos de tamanhos diferentes empilhados em A em ordem decrescente (o maior na base).
+    </p>
+    <p>
+        <strong>Objetivo:</strong> Mover todos os discos de A para B, obedecendo as restrições:
+    </p>
+    <ul>
+        <li>Apenas um disco pode ser movido de cada vez.</li>
+        <li>Nenhum disco pode ser colocado sobre um disco menor.</li>
+    </ul>
+    <p>
+        A solução recursiva para n > 1 envolve três passos:
+    </p>
+    <ul>
+        <li>Mover os n – 1 discos do pino A para o pino C, usando B como auxiliar.</li>
+        <li>Mover o disco restante (o maior) de A para B.</li>
+        <li>Mover os n – 1 discos de C para B, usando A como auxiliar.</li>
+    </ul>
+    <pre>
+Algoritmo 1.4
+Torre de Hanói
+procedimento hanoi(n, A, B, C)
+  se n > 0 então
+      hanoi(n – 1, A, C, B)
+      mover o disco do topo de A para B
+      hanoi(n – 1, C, B, A)
+    </pre>
+    <p>
+        A chamada externa para iniciar o processo é <code>hanoi(n, A, B, C)</code>.
+    </p>
+    <h4>Implementação em Python</h4>
+    <pre>
+def hanoi(n, A, B, C):
+  if n > 0:
+      hanoi(n - 1, A, C, B)
+      print(f"Mover o disco do pino {A} para o pino {B}")
+      hanoi(n - 1, C, B, A)
+
+# Exemplo de uso
+print("Solução para Torre de Hanói com 3 discos:")
+hanoi(3, "A", "B", "C")
+    </pre>
+    <p>
+        Nesta implementação, a função <code>hanoi</code> utiliza recursividade para resolver o problema, 
+        imprimindo os movimentos necessários para transferir os discos de A para B.
+    </p>      
     </section>
   </main>
   <footer>

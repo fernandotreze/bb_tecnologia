@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anotações - Dia #2</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 20px;
+      line-height: 1.6;
+      color: #333;
+    }
+    header, footer {
+      background-color: #2c3e50;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+    main {
+      background-color: #fff;
+      padding: 20px;
+      max-width: 900px;
+      margin: 0 auto 20px auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      color: #2c3e50;
+    }
+    pre {
+      background: #eef;
+      padding: 10px;
+      border-left: 4px solid #3498db;
+      overflow-x: auto;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    .section {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Anotações - Dia #2</h1>
+  </header>
+  <main>
+    <section class="section">
+      <h2>Recursividade</h2>
+      <p>
+        A <strong>recursividade</strong> é uma técnica na qual um procedimento ou função se chama dentro de sua própria definição para resolver um problema. Essa abordagem é especialmente útil quando o problema pode ser dividido em subproblemas menores e similares ao original.
+      </p>
+      <ul>
+        <li>
+          <strong>Procedimento Recursivo:</strong> Contém chamadas a si mesmo (chamadas recursivas) e precisa de um <em>caso base</em> para terminar as chamadas.
+        </li>
+        <li>
+          <strong>Chamada Externa:</strong> Mesmo um procedimento recursivo precisa ser iniciado por uma chamada que vem de fora.
+        </li>
+        <li>
+          <strong>Vantagens:</strong> Código mais conciso, fácil de relacionar com provas por indução.
+        </li>
+        <li>
+          <strong>Desvantagens:</strong> Pode ser menos eficiente em termos de memória e desempenho quando comparado com algoritmos iterativos.
+        </li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Cálculo do Fatorial</h2>
+      
+      <h3>1. Fatorial Recursivo</h3>
+      <p>
+        O fatorial de um número <em>n</em> (denotado <em>n!</em>) é definido como o produto de todos os números inteiros positivos de 1 até <em>n</em>, com a convenção de que <em>0! = 1</em>.
+      </p>
+      <p>
+        Na abordagem recursiva, usamos a definição:
+      </p>
+      <p>
+        Se <em>n ≤ 1</em> então <em>n! = 1</em>; caso contrário, <em>n! = n × (n-1)!</em>
+      </p>
+      <pre>
+def fatorial_recursivo(n):
+    if n <= 1:
+        return 1
+    else:
+        return n * fatorial_recursivo(n - 1)
+
+# Exemplo de uso:
+print("Fatorial recursivo de 4:", fatorial_recursivo(4))  # Saída: 24
+      </pre>
+      <p>
+        O exemplo mostra como a função se chama repetidamente até atingir o caso base, onde <em>n</em> é 0 ou 1.
+      </p>
+      
+      <h3>2. Fatorial Iterativo (Não Recursivo)</h3>
+      <p>
+        Na abordagem iterativa, o fatorial é calculado usando um laço, acumulando o resultado em um vetor ou variável.
+      </p>
+      <pre>
+def fatorial_iterativo(n):
+    fat = [1] * (n + 1)
+    for j in range(1, n + 1):
+        fat[j] = j * fat[j - 1]
+    return fat[n]
+
+# Exemplo de uso:
+print("Fatorial iterativo de 4:", fatorial_iterativo(4))  # Saída: 24
+      </pre>
+      <p>
+        Nesse método, iniciamos com <code>fat[0] = 1</code> e, para cada <em>j</em> de 1 até <em>n</em>, calculamos <code>fat[j]</code> como <code>j × fat[j-1]</code>.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Problema da Torre de Hanói</h2>
+      <p>
+        A Torre de Hanói é um clássico problema recursivo que envolve três pinos (A: origem, B: destino, C: trabalho) e <em>n</em> discos de tamanhos diferentes empilhados em A em ordem decrescente (o maior na base).
+      </p>
+      <p>
+        <strong>Objetivo:</strong> Mover todos os discos do pino A para o pino B obedecendo as regras:
+      </p>
+      <ul>
+        <li>Apenas um disco pode ser movido de cada vez.</li>
+        <li>Nenhum disco pode ser colocado sobre um disco menor.</li>
+      </ul>
+      <p>
+        A solução recursiva envolve os seguintes passos para <em>n > 1</em>:
+      </p>
+      <ul>
+        <li>Mover os n – 1 discos de A para C (usando B como auxiliar).</li>
+        <li>Mover o disco maior de A para B.</li>
+        <li>Mover os n – 1 discos de C para B (usando A como auxiliar).</li>
+      </ul>
+      <pre>
+def hanoi(n, A, B, C):
+    if n > 0:
+        hanoi(n - 1, A, C, B)
+        print(f"Mover o disco do pino {A} para o pino {B}")
+        hanoi(n - 1, C, B, A)
+
+# Exemplo de uso:
+print("Solução para Torre de Hanói com 3 discos:")
+hanoi(3, "A", "B", "C")
+      </pre>
+      <p>
+        Esse código demonstra a resolução do problema da Torre de Hanói usando recursividade. A função <code>hanoi</code> é chamada externamente com os parâmetros correspondentes aos pinos de origem, destino e trabalho.
+      </p>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 Aprendizado TI</p>
+  </footer>
+</body>
+</html>
