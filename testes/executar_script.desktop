@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Calculadora de Fatorial
+Comment=Executa o script Python
+Exec=python3 /home/fernando-martins-miranda/bb_tecnologia/testes/fatorial_reversivo.py
+Icon=/home/fernando-martins-miranda/bb_tecnologia/testes/icone_n!.png
+Terminal=false
